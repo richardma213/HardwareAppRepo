@@ -1,0 +1,151 @@
+/* Page wrapper */
+.gpu-page {
+  min-height: 100vh;
+  background: var(--border);
+  padding: 20px;
+}
+
+/* Title background section */
+.gpu-hero {
+  background: var(--gpubg);
+  padding: 0;
+  text-align: center;
+}
+
+
+.info-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.gpu-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.gpu-subtitle {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-top: .5rem;
+}
+
+.gpu-content {
+  display: grid;
+  grid-template-columns: 550px 1fr;
+  gap: 20px;
+  height: calc(100vh - 200px);
+  overflow: hidden;
+}
+
+/* left column */
+.gpu-left {
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* right column */
+.gpu-right {
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+
+/* Search bar */
+.gpu-search {
+  width: 100%;
+  padding: .8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* GPU list */
+.gpu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* GPU card */
+.gpu-card {
+  background: var(--border);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.gpu-card h3 {
+  margin: 0 0 .5rem 0;
+}
+
+.gpu-score {
+  margin-top: .5rem;
+  font-weight: 700;
+  color: #4db2ff;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.gpu-right {
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-x: hidden;
+}
+
+/* search + sort bar */
+.gpu-right-header {
+  position: sticky;
+  top: 0;
+  background: var(--border);
+  padding: 10px 0;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gpu-weight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+  color: white;
+}
+
+.weight-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weight-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.weight-number {
+  width: 60px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.weight-slider {
+  flex: 1;
+}

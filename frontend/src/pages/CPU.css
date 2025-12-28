@@ -1,0 +1,165 @@
+/* Keeps react on a single page (no horizontal slider) */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Top section */
+.cpu-hero {
+  background: var(--bg);
+  padding: 0;
+  text-align: center;
+}
+
+.cpu-right {
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-x: hidden;
+}
+
+/* Sticky search + sort bar */
+.cpu-right-header {
+  position: sticky;
+  top: 0;
+  background: var(--border);
+  padding: 10px 0;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+  
+}
+
+
+.cpu-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.cpu-subtitle {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-top: .5rem;
+}
+
+/* Entire page wrapper */
+.cpu-page {
+  min-height: 100vh;
+  background: var(--border);
+  padding: 20px;
+}
+
+.info-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+/* two column content */
+.cpu-content {
+  display: grid;
+  grid-template-columns: 600px 1fr; 
+  gap: 20px;
+  height: calc(100vh - 200px); 
+  overflow: hidden; 
+}
+
+/* left column */
+.cpu-left {
+  overflow-y: auto;  
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* right column */
+.cpu-right {
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* search bar */
+.cpu-search {
+  width: 100%;
+  padding: .8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.cpu-weight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two per row */
+  gap: 20px;
+  color: white;
+}
+
+.cpu-weight-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+/* cpu card */
+.cpu-card {
+  background:var(--border);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  font-weight: 600;
+  
+}
+
+.cpu-card h3 {
+  margin: 0 0 .5rem 0;
+}
+
+.cpu-weight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+  color: white;
+}
+
+.weight-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weight-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.weight-number {
+  width: 60px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.weight-slider {
+  flex: 1;
+}
+
+.cpu-score {
+  margin-top: .5rem;
+  font-weight: 700;
+  color: #d63384;
+}

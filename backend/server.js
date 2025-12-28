@@ -10,7 +10,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.post("/api/hello", (req, res) => {
-  const name = req.body.name;   // NOT req.body()
+  const name = req.body.name;  
   res.json({ message: `${name} backend is running` });
 });
 
