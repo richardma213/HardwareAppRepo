@@ -49,5 +49,5 @@ export const cpuData = [
   { id: 38, name: "AMD Ryzen 9 7900X3D", cores: 12, threads: 24, baseClock: "4.4 GHz", boostClock: "5.6 GHz", tdp: 120 },
   { id: 39, name: "AMD Ryzen 9 7950X3D", cores: 16, threads: 32, baseClock: "4.2 GHz", boostClock: "5.7 GHz", tdp: 120 },
 
-  { id: 40, name: "Intel Pentium Gold G6400", cores: 2, threads: 4, baseClock: "4.0 GHz", boostClock: "0 GHz", tdp: 58 }
+  { id: 40, name: "Intel Pentium Gold G6400", cores: 2, threads: 4, baseClock: "4.0 GHz", boostClock: "4.0 GHz", tdp: 58 }
 ];

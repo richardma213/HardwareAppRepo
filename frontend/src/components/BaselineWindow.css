@@ -1,0 +1,49 @@
+.baseline-window {
+  position: fixed;
+  width: 340px;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bg);
+  border-radius: 10px;
+  padding: 0;
+  z-index: 9999;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  cursor: default;
+  transition: height 0.2s ease, width 0.2s ease;
+}
+
+.baseline-window.minimized {
+  height: 40px;
+  width: 240px;
+  overflow: hidden;
+}
+
+.baseline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  cursor: grab;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.baseline-controls button {
+  margin-left: 6px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.baseline-content {
+  padding: 12px;
+}
+
+.baseline-content label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}

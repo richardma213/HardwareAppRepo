@@ -1,11 +1,11 @@
-/* Page wrapper */
+/* page wrap */
 .gpu-page {
   min-height: 100vh;
   background: var(--border);
   padding: 20px;
 }
 
-/* Title background section */
+/* title background section */
 .gpu-hero {
   background: var(--gpubg);
   padding: 0;
@@ -22,6 +22,7 @@
   cursor: pointer;
   margin-bottom: 10px;
 }
+
 
 .gpu-title {
   font-size: 2.5rem;

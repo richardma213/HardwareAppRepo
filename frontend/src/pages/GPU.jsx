@@ -5,27 +5,33 @@ import { calculateGpuScore } from "../data/gpuscoreinfo";
 import GpuWeightRadarChart from "../components/GpuWeightRadarChart"
 import Card from "../components/Card";
 import InfoPopup from "../components/InfoPopUp";
+import { useCompare } from "../components/CompareContext";
+import { useBaseline } from "../components/BaselineContext";
 
 export default function GPU() {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("score");
   const [showInfo, setShowInfo] = useState(false);
+  const { gpuList, addGPU, removeGPU } = useCompare();
 
+  const { baselineCPU, baselineGPU } = useBaseline();
+   
   const [weights, setWeights] = useState({
     clock: 0.5,
     vram: 0.3,
     efficiency: 0.2
   });
 
-  // Normalize weights to 1
+  // normalize weights to 1
   function normalizeWeights(w) {
     const total = w.clock + w.vram + w.efficiency;
 
-    // Default weights
+    // default weights
     if (total === 0) {
       return { clock: 0.34, vram: 0.33, efficiency: 0.33 };
     }
 
+    // calculate weights
     return {
       clock: w.clock / total,
       vram: w.vram / total,
@@ -33,6 +39,7 @@ export default function GPU() {
     };
   }
 
+  // function to sort the gpu list based on search 
   function sortGPUs(gpus, sortBy) {
     const sorted = Array.from(gpus);
     
@@ -54,30 +61,35 @@ export default function GPU() {
     }
   }
 
+  // Calculate and append the final score to the gpu
   function addScore(gpu){
     return {
-      ...gpu, finalScore: calculateGpuScore(gpu, normalizedWeights)
+      ...gpu, finalScore: calculateGpuScore(gpu, normalizedWeights, baselineGPU).total
     }
   }
 
+  // Helper method that returns the final score of a gpu
   function getFinalScore(gpu){
     return gpu.finalScore;
   }
 
-
+  // normalize weights to 1
   const normalizedWeights = normalizeWeights(weights);
 
-  const scoredGPUs = gpuData.map(addScore);
+  const scoredGPUs = gpuData.map(addScore); // score each gpu in the list
 
-  const maxScore = Math.max(...scoredGPUs.map(getFinalScore));
+  const maxScore = Math.max(...scoredGPUs.map(getFinalScore)); // get max in the scored gpu list
 
+  // Normalize the scores
   const normalizedGPUs = scoredGPUs.map(gpu => ({
     ...gpu,
     normalizedScore: maxScore > 0 ? Math.round((gpu.finalScore / maxScore) * 100) : 0
-  }));
+  })); 
 
+  // Sort scores
   const sortedGPUs = sortGPUs(normalizedGPUs, sortBy);
 
+  // Search bar name filtering 
   const filteredGPUs = sortedGPUs.filter(gpu => {
     const name = gpu.name.toLowerCase();
     const terms = search.toLowerCase().split(" ").filter(Boolean);
@@ -285,18 +297,37 @@ export default function GPU() {
           </select>
         </div>
 
-        {/* scrollable gpu list */}
+       {/* scrollable gpu list */}
         <div className="gpu-list">
-          {filteredGPUs.map((gpu) => (
-            <div key={gpu.id} className="gpu-card">
-              <h3>{gpu.name}</h3>
-              <p>VRAM: {gpu.vram} GB</p>
-              <p>Boost: {gpu.boostClock}</p>
-              <p>TDP: {gpu.tdp} W</p>
-              <p className="gpu-score">Score: {gpu.normalizedScore}%</p>
-            </div>
-          ))}
+          {filteredGPUs.map((gpu) => {
+            const isSelected = gpuList.some((g) => g.id === gpu.id);
+
+            return (
+              <div key={gpu.id} className="gpu-card">
+
+                {/* Title row with compare button */}
+                <div className="gpu-card-header">
+                  <h3>{gpu.name}</h3>
+
+                  <button
+                    className={`compare-btn ${isSelected ? "selected" : ""}`}
+                    onClick={() =>
+                      isSelected ? removeGPU(gpu.id) : addGPU(gpu)
+                    }
+                  >
+                    {isSelected ? "✓ Added" : "Compare"}
+                  </button>
+                </div>
+
+                <p>VRAM: {gpu.vram} GB</p>
+                <p>Boost: {gpu.boostClock}</p>
+                <p>TDP: {gpu.tdp} W</p>
+                <p className="gpu-score">Score: {gpu.normalizedScore}%</p>
+              </div>
+            );
+          })}
         </div>
+
 
       </div>
 

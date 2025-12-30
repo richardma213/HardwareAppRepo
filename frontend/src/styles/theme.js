@@ -5,6 +5,7 @@ export const lightTheme = {
   border: "#f9f9f9ff",
   navbar: "rgb(238, 237, 255)",
   gpubg: "#d0e0ffff"
+  
 };
 
 export const darkTheme = {

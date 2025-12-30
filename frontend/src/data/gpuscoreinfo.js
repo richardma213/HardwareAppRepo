@@ -1,9 +1,4 @@
-const baselineGPU = {
-  baseClock: 1500,   // MHz
-  boostClock: 1800,  // MHz
-  vram: 8,           // GB
-  tdp: 200           // W
-};
+
 
 // Parser to extract number ghz 
 function parseMHz(clockString) {
@@ -13,8 +8,8 @@ function parseMHz(clockString) {
   return numeric;
 }
 
-// Calculate gpu score based on weights
-export function calculateGpuScore(gpu, weights) {
+// Calculate GPU score based on weights + dynamic baseline
+export function calculateGpuScore(gpu, weights, baselineGPU) {
   const baseClock = parseMHz(gpu.baseClock);
   const boostClock = parseMHz(gpu.boostClock);
   const vram = Number(gpu.vram);
@@ -28,5 +23,25 @@ export function calculateGpuScore(gpu, weights) {
 
   const total = clockScore + vramScore + efficiencyScore;
 
-  return Math.round(total * 100);
+  return {
+    total,               
+    clockScore,
+    vramScore,
+    efficiencyScore
+  };
 }
+
+
+export function normalizeGpuMetrics(gpuList) {
+  const maxClock = Math.max(...gpuList.map(g => parseMHz(g.boostClock) || 0), 1);
+  const maxVRAM = Math.max(...gpuList.map(g => Number(g.vram) || 0), 1);
+  const minTDP = Math.min(...gpuList.map(g => Number(g.tdp) || 1), 1);
+
+  return gpuList.map(gpu => ({
+    ...gpu,
+    clockPercent: Math.round((parseMHz(gpu.boostClock) / maxClock) * 100),
+    vramPercent: Math.round((gpu.vram / maxVRAM) * 100),
+    efficiencyGPUPercent: Math.round((minTDP / gpu.tdp) * 100)
+  }));
+}
+

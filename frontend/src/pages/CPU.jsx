@@ -5,13 +5,19 @@ import { calculateScore } from "../data/cpuscoreinfo";
 import WeightRadarChart from "../components/WeightRadarChart";
 import Card from "../components/Card";
 import InfoPopup from "../components/InfoPopUp";
+import { useCompare } from "../components/CompareContext"; 
+import { useBaseline } from "../components/BaselineContext";
 
 export default function CPU() {
 
   const [Search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("score");
   const [showInfo, setShowInfo] = useState(false);
+  const { cpuList, addCPU, removeCPU } = useCompare();
+
   
+  const { baselineCPU, baselineGPU } = useBaseline();
+
   const [weights, setWeights] = useState({
     clockSpeed: 0.4,
     cores: 0.3,
@@ -21,7 +27,7 @@ export default function CPU() {
 
 
   function getFinalScore(cpu){
-    return calculateScore(cpu, normalized);
+    return calculateScore(cpu, normalized, baselineCPU).total;
   }
 
 
@@ -63,6 +69,7 @@ export default function CPU() {
       };
    }
 
+  // Sort the list given user search selection
   function sortCPUs(cpus, sortBy) {
     const sorted = [...cpus];
 
@@ -324,18 +331,43 @@ export default function CPU() {
             </select>
           </div>
 
+         
           {/* scrollable cpu list */}
           <div className="cpu-list">
             {filteredCPUs.length > 0 ? (
-              filteredCPUs.map((cpu) => (
-                <div key={cpu.id} className="cpu-card">
-                  <h3>{cpu.name}</h3>
-                  <p>{cpu.cores} cores / {cpu.threads} threads</p>
-                  <p>Boost: {cpu.boostClock}</p>
-                  <p>TDP: {cpu.tdp}</p>
-                  <p className="cpu-score">Score: {cpu.normalizedScore}%</p>
-                </div>
-              ))
+              filteredCPUs.map((cpu) => {
+                const isSelected = cpuList.some((c) => c.id === cpu.id);
+
+                return (
+                  <div key={cpu.id} className="cpu-card">
+
+                    {/* Title row with compare button */}
+                    <div className="cpu-card-header">
+                      <h3>{cpu.name}</h3>
+
+                      <button
+                        className={`compare-btn ${isSelected ? "selected" : ""}`}
+                        onClick={() =>
+                          isSelected ? removeCPU(cpu.id) : addCPU(cpu)
+                        }
+                      >
+                        {isSelected ? (
+                          <>
+                            ✓ Added
+                          </>
+                        ) : (
+                          "Compare"
+                        )}
+                      </button>
+                    </div>
+
+                    <p>{cpu.cores} cores / {cpu.threads} threads</p>
+                    <p>Boost: {cpu.boostClock}</p>
+                    <p>TDP: {cpu.tdp}</p>
+                    <p className="cpu-score">Score: {cpu.normalizedScore}%</p>
+                  </div>
+                );
+              })
             ) : (
               <p>No CPUs found.</p>
             )}

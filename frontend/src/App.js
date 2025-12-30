@@ -7,50 +7,64 @@ import './components/Navbar.css';
 import CPU from "./pages/CPU";
 import GPU from "./pages/GPU";
 import Report from "./pages/Report";
+import Compare from "./pages/Compare";
 import SettingsPopUp from "./components/SettingsPopUp.jsx";
 import { lightTheme, darkTheme, applyTheme } from "./styles/theme";
+import { CompareProvider } from "./components/CompareContext.jsx";
+import { BaselineProvider } from "./components/BaselineContext.jsx";
+import BaselineWindow from "./components/BaselineWindow.jsx";
 
-
+// Core class
 function App() {
-  const [showSettings, setShowSettings] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  // Functions & Setting useStates
 
-  useEffect(updateTheme, [darkMode]);
+  const [showSettings, setShowSettings] = useState(false); // settings page display
+  const [showBaselineWindow, setShowBaselineWindow] = useState(false); // baseline page display
 
-  // Update theme based on current selection
-  function updateTheme(){
-    applyTheme(darkMode ? darkTheme: lightTheme);
-  }
+  // Dark mode settings
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true";
+  });
 
-  // Handle close for settings screen
-  function handleClose(){
-    setShowSettings(false);
-  }
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+    applyTheme(darkMode ? darkTheme : lightTheme);
+  }, [darkMode]);
+
 
   return (
-    <BrowserRouter>
-      <div className={darkMode ? "dark" : "light"}>
-        <Navbar setShowSettings={setShowSettings} />
+    <CompareProvider>
+      <BaselineProvider>
+        <BrowserRouter>
+          <div className={darkMode ? "dark" : "light"}>
+            <Navbar setShowSettings={setShowSettings} />
 
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/cpu" element={<CPU/>} />
-          <Route path="/gpu" element={<GPU/>} />
-          <Route path="/report" element={<Report/>} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cpu" element={<CPU />} />
+              <Route path="/gpu" element={<GPU />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/compare" element={<Compare />} />
+            </Routes>
 
-        </Routes>
+          <SettingsPopUp
+            open={showSettings}
+            onClose={() => setShowSettings(false)}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+            setShowBaselineWindow={setShowBaselineWindow}
+          />
+                    
+          <BaselineWindow
+            open={showBaselineWindow}
+            onClose={() => setShowBaselineWindow(false)}
+          />
 
-        <SettingsPopUp
-          open={showSettings}
-          onClose={handleClose}
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
-
-      </div>
-    </BrowserRouter>
+          </div>
+        </BrowserRouter>
+      </BaselineProvider>
+    </CompareProvider>
   );
 }
-
 
 export default App;

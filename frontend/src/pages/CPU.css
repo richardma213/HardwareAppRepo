@@ -1,9 +1,9 @@
-/* Keeps react on a single page (no horizontal slider) */
+/* Stop the file from going off screen */
 html, body {
   overflow-x: hidden;
 }
 
-/* Top section */
+/* title background filled section */
 .cpu-hero {
   background: var(--bg);
   padding: 0;
@@ -19,7 +19,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Sticky search + sort bar */
+/* search + sort bar */
 .cpu-right-header {
   position: sticky;
   top: 0;
@@ -43,7 +43,7 @@ html, body {
   margin-top: .5rem;
 }
 
-/* Entire page wrapper */
+
 .cpu-page {
   min-height: 100vh;
   background: var(--border);
@@ -95,6 +95,7 @@ html, body {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  
 }
 
 .cpu-weight-grid {
@@ -123,6 +124,30 @@ html, body {
 
 .cpu-card h3 {
   margin: 0 0 .5rem 0;
+}
+
+
+.compare-btn.selected {
+  background: #2ecc71; /* green success color */
+  color: white;
+}
+.compare-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent, #007bff);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+.compare-btn.selected:hover {
+  background: #27ae60;
+}
+
+.compare-btn:hover {
+  opacity: 0.85;
 }
 
 .cpu-weight-grid {

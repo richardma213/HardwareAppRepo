@@ -1,6 +1,13 @@
 import "./SettingsPopUp.css";
 
-export default function SettingsPopup({ open, onClose, darkMode, setDarkMode }) {
+export default function SettingsPopup({
+    open,
+    onClose,
+    darkMode,
+    setDarkMode,
+    setShowBaselineWindow
+  }) {
+
   if (!open) return null;
 
   return (
@@ -12,12 +19,22 @@ export default function SettingsPopup({ open, onClose, darkMode, setDarkMode }) 
 
         <div className="settings-item">
           <label>Dark Mode</label>
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             checked={darkMode}
             onChange={() => setDarkMode(!darkMode)}
           />
         </div>
+
+       <div className="settings-item">
+        <label>Baseline Settings</label>
+        <input
+          type="checkbox"
+          checked={false} 
+          onChange={() => setShowBaselineWindow(true)}
+        />
+      </div>
+
 
       </div>
     </div>

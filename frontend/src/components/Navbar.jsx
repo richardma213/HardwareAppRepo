@@ -20,6 +20,7 @@ export default function Navbar({ setShowSettings }) {
         <Link to="/cpu" className="nav-link">CPU</Link>
         <Link to="/gpu" className="nav-link">GPU</Link>
         <Link to="/report" className="nav-link">Report</Link>
+        <Link to="/compare" className="nav-link"> Compare </Link>
         <Link to="/" className="nav-link">Home</Link>
 
       </div>

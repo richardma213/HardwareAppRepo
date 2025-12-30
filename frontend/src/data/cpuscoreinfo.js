@@ -1,12 +1,3 @@
-// Path: src/data/cpuscoreinfo.js
-
-// Base line score metrics
-export const baselineCPU = {
-  clockSpeed: 4.0,
-  cores: 8,
-  threads: 16,
-  tdp: 100
-};
 
 // Parser to extract number ghz 
 export function parseGHz(clockString) {
@@ -24,8 +15,8 @@ export function parseGHz(clockString) {
   return num;
 }
 
-// Calculate a cpu's score based on weights
-export function calculateScore(cpu, weights) {
+// Calculate CPU score based on weights + dynamic baseline
+export function calculateScore(cpu, weights, baselineCPU) {
   const cpuClock = parseGHz(cpu.boostClock);
   const cores = Number(cpu.cores);
   const threads = Number(cpu.threads);
@@ -38,5 +29,28 @@ export function calculateScore(cpu, weights) {
 
   const total = clockScore + coreScore + threadScore + efficiencyScore;
 
-  return Math.round(total * 100);
+  return {
+    total,              
+    clockScore,
+    coreScore,
+    threadScore,
+    efficiencyScore
+  };
 }
+
+
+export function normalizeCpuMetrics(cpuList) {
+  const maxClock = Math.max(...cpuList.map(c => parseGHz(c.boostClock) || 0), 1);
+  const maxCores = Math.max(...cpuList.map(c => Number(c.cores) || 0), 1);
+  const maxThreads = Math.max(...cpuList.map(c => Number(c.threads) || 0), 1);
+  const minTDP = Math.min(...cpuList.map(c => Number(c.tdp) || 1), 1);
+
+  return cpuList.map(cpu => ({
+    ...cpu,
+    clockPercent: Math.round((parseGHz(cpu.boostClock) / maxClock) * 100),
+    coresPercent: Math.round((cpu.cores / maxCores) * 100),
+    threadsPercent: Math.round((cpu.threads / maxThreads) * 100),
+    efficiencyPercent: Math.round((minTDP / cpu.tdp) * 100)
+  }));
+}
+
