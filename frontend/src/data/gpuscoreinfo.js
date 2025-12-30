@@ -15,13 +15,23 @@ export function calculateGpuScore(gpu, weights, baselineGPU) {
   const vram = Number(gpu.vram);
   const tdp = Number(gpu.tdp);
 
+  function dimExp(x, alpha) {
+    return Math.pow(x, alpha);
+  }
+
+  // Calculate individual scores linearly (no diminishing returns)
   const avgClock = (baseClock + boostClock) / 2;
 
   const clockScore = (avgClock / baselineGPU.boostClock) * weights.clock;
   const vramScore = (vram / baselineGPU.vram) * weights.vram;
   const efficiencyScore = (baselineGPU.tdp / tdp) * weights.efficiency;
 
-  const total = clockScore + vramScore + efficiencyScore;
+  // Final score calculated with diminishing returns for better accuracy
+  const dimclockScore = (avgClock / baselineGPU.boostClock) * weights.clock; // clock variance less
+  const dimvramScore = dimExp(vram / baselineGPU.vram, 0.6) * weights.vram;
+  const dimefficiencyScore = dimExp(baselineGPU.tdp / tdp, 0.4) * weights.efficiency; // efficiency variance more
+
+  const total = dimclockScore + dimvramScore + dimefficiencyScore;
 
   return {
     total,               

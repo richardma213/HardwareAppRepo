@@ -18,7 +18,31 @@ export default function BaselineWindow({ open, onClose }) {
     return Math.max(0, Number(value));
   };
 
-  // Start dragging
+  // --- PRESETS ---
+  const presets = {
+    gaming: {
+      cpu: { clockSpeed: 4.8, cores: 8, threads: 16, tdp: 125 },
+      gpu: { boostClock: 1900, vram: 16, tdp: 150 }
+    },
+    workstation: {
+      cpu: { clockSpeed: 3.6, cores: 16, threads: 32, tdp: 170 },
+      gpu: { boostClock: 1500, vram: 8, tdp: 100 }
+    },
+    balanced: {
+      cpu: { clockSpeed: 4.0, cores: 6, threads: 12, tdp: 95 },
+      gpu: { boostClock: 1600, vram: 6, tdp: 50 }
+    }
+  };
+
+  const applyPreset = (presetName) => {
+    const preset = presets[presetName];
+    if (!preset) return;
+
+    setBaselineCPU(preset.cpu);
+    setBaselineGPU(preset.gpu);
+  };
+
+  // Dragging
   const startDrag = (e) => {
     pos.current.dragging = true;
     pos.current.offsetX = e.clientX - pos.current.x;
@@ -65,6 +89,14 @@ export default function BaselineWindow({ open, onClose }) {
       {/* CONTENT */}
       {!minimized && (
         <div className="baseline-content">
+
+          {/* PRESET BUTTONS */}
+          <div className="preset-row">
+            <button onClick={() => applyPreset("gaming")}>Gaming</button>
+            <button onClick={() => applyPreset("workstation")}>Work</button>
+            <button onClick={() => applyPreset("balanced")}>Balanced</button>
+          </div>
+
           <h3>CPU Baseline</h3>
 
           <label>Clock Speed (GHz)</label>

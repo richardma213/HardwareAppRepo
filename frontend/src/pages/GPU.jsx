@@ -299,7 +299,8 @@ export default function GPU() {
 
        {/* scrollable gpu list */}
         <div className="gpu-list">
-          {filteredGPUs.map((gpu) => {
+          {filteredGPUs.length > 0 ? (
+           filteredGPUs.map((gpu) => {
             const isSelected = gpuList.some((g) => g.id === gpu.id);
 
             return (
@@ -325,7 +326,11 @@ export default function GPU() {
                 <p className="gpu-score">Score: {gpu.normalizedScore}%</p>
               </div>
             );
-          })}
+          })
+ 
+         ) : (
+              <p>No GPUs found.</p>
+        )}
         </div>
 
 

@@ -1,6 +1,6 @@
 import "./Compare.css";
 import { useCompare } from "../components/CompareContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { calculateScore as calculateCPUScore, normalizeCpuMetrics } from "../data/cpuscoreinfo";
 import { calculateGpuScore, normalizeGpuMetrics} from "../data/gpuscoreinfo";
 import { useBaseline } from "../components/BaselineContext";
@@ -8,17 +8,28 @@ import { useBaseline } from "../components/BaselineContext";
 
 export default function Compare() {
   const { cpuList, gpuList, removeCPU, removeGPU } = useCompare();
+  const [weights, setWeights] = useState(() => {
+    // Load from localStorage on first render
+    const saved = localStorage.getItem("weights");
+    return saved
+      ? JSON.parse(saved)
+      : {
+          clockSpeed: 0.25,
+          cores: 0.25,
+          threads: 0.25,
+          efficiency: 0.25,
 
-  const [weights, setWeights] = useState({
-    clockSpeed: 0.4,   
-    cores: 0.3,        
-    threads: 0.2,      
-    efficiency: 0.1,   
-
-    clock: 0.4,       
-    vram: 0.4,        
-    efficiencyGPU: 0.2 
+          clock: 0.4,
+          vram: 0.4,
+          efficiencyGPU: 0.4
+        };
   });
+
+  // Save to localStorage whenever weights change
+  useEffect(() => {
+    localStorage.setItem("weights", JSON.stringify(weights));
+  }, [weights]);
+
 
   const { baselineCPU, baselineGPU } = useBaseline();
 
