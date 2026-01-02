@@ -1,15 +1,17 @@
 import "./Compare.css";
 import { useCompare } from "../components/CompareContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { calculateScore as calculateCPUScore, normalizeCpuMetrics } from "../data/cpuscoreinfo";
 import { calculateGpuScore, normalizeGpuMetrics} from "../data/gpuscoreinfo";
 import { useBaseline } from "../components/BaselineContext";
+import { useLocation } from "react-router-dom";
 
 
 export default function Compare() {
-  const { cpuList, gpuList, removeCPU, removeGPU } = useCompare();
+  const { cpuList, gpuList, removeCPU, removeGPU, addCPU, addGPU, clearCPUs, clearGPUs } = useCompare();
+  
   const [weights, setWeights] = useState(() => {
-    // Load from localStorage on first render
+    // load from localStorage on first render
     const saved = localStorage.getItem("weights");
     return saved
       ? JSON.parse(saved)
@@ -88,7 +90,7 @@ export default function Compare() {
 
   const normalizedGPUWeights = normalizeGPUWeights(weights);
 
-  // 1. weighted scoring
+  // 1. CPU weighted scoring
   const scoredCPUs = cpuList.map(cpu => ({
     ...cpu,
     ...calculateCPUScore(cpu, normalizedCPUWeights, baselineCPU)
@@ -123,7 +125,78 @@ export default function Compare() {
   // 3. normalize raw metrics
   const detailedGPUs = normalizeGpuMetrics(normalizedGPUs);
 
-  
+
+  const handleSaveReport = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token){
+        return alert("You must be logged in to save reports!");
+      }
+
+      const report = {
+        weights,
+        cpus: detailedCPUs,
+        gpus: detailedGPUs,
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+         const res = await fetch("http://localhost:2000/save-report", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(report)
+          });
+
+          const data = await res.json();
+
+          if(!res.ok){
+            return alert(data.message || "failed to save report");
+          }
+
+          alert("report saved successfully");
+
+      }catch (e){
+        console.error(e);
+        alert("Error saving report.");
+      }
+  }
+
+  // Load report
+  const location = useLocation();
+  const loadedReport = location.state?.report;
+
+  const hasLoaded = useRef(false);
+
+  useEffect(() => {
+    if (!loadedReport) return;
+    if (hasLoaded.current) return;   
+
+    hasLoaded.current = true;        
+
+    clearCPUs();
+    clearGPUs();
+
+    loadedReport.cpus?.forEach(cpu => addCPU(cpu));
+    loadedReport.gpus?.forEach(gpu => addGPU(gpu));
+
+    if (loadedReport.weights) {
+      setWeights(loadedReport.weights);
+    }
+    }, [
+      loadedReport,
+      addCPU,
+      addGPU,
+      clearCPUs,
+      clearGPUs,
+      setWeights
+    ]);
+
+
+
+    
   return (
     <div className="compare-page">
 
@@ -402,13 +475,15 @@ export default function Compare() {
               <h2>Final Generated Report</h2>
             </div>
 
-            {detailedCPUs.length === 0 && detailedGPUs.length === 0 ? (
-              <p>No components selected yet.</p>
-            ) : (
-              <div className="report-list">
+            <button
+              type="button"
+              className="save-report-button"
+              onClick={handleSaveReport}
+            >
+              Save Report
+            </button>
 
-                {/* WEIGHTS USED */}
-                <div className="report-item">
+             <div className="report-item">
                   <h3>Weights Used</h3>
 
                   <p><strong>CPU Weights</strong></p>
@@ -421,8 +496,16 @@ export default function Compare() {
                   <p>Clock Speed: {weights.clock}</p>
                   <p>VRAM: {weights.vram}</p>
                   <p>Efficiency (TDP): {weights.efficiencyGPU}</p>
-                </div>
+              </div>
 
+            {detailedCPUs.length === 0 && detailedGPUs.length === 0 ? (
+              
+              <p>No components selected yet.</p>
+              
+            ) : (
+              <div className="report-list">
+
+          
                 {/* CPU SUMMARY */}
                 {detailedCPUs.length > 0 && (
                   <div className="report-item">
@@ -466,7 +549,7 @@ export default function Compare() {
           </div>
         </section>
 
-
+            
       </main>
     </div>
 

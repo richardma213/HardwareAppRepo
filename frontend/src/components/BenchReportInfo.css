@@ -1,0 +1,45 @@
+.info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.info-modal-br{
+    background: var(--card);
+    color: var(--text);
+    width: 800px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    position: relative;
+    
+}
+
+.info-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text); 
+}
+
+.info-section {
+  margin-top: 20px;
+}
+
+.info-section h3 {
+  margin-bottom: 5px;
+  color: var(--text); 
+}

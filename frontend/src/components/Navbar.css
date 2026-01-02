@@ -20,6 +20,12 @@
   text-decoration: none;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .nav-right {
   display: flex;
   gap: 1.5rem;
@@ -33,4 +39,20 @@
 
 .nav-link:hover {
   color: #000;
+}
+
+.br-info-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 500;
 }

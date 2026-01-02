@@ -3,8 +3,8 @@ import { useBaseline } from "./BaselineContext";
 import "./BaselineWindow.css";
 
 export default function BaselineWindow({ open, onClose }) {
+  
   const { baselineCPU, setBaselineCPU, baselineGPU, setBaselineGPU } = useBaseline();
-
   const [minimized, setMinimized] = useState(false);
 
   // Dragging state

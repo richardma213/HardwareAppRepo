@@ -116,3 +116,19 @@
   margin: 4px 0;
   font-size: 0.9rem;
 }
+
+.save-report-button{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+}

@@ -39,4 +39,35 @@
   justify-content: space-between;
   margin-top: 20px;
   color: var(--text); 
+  padding-bottom: 30px;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 16px 0;
+  margin-top: auto;          
+  background: var(--gpubg);  
+  color: var(--text);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.saved-rep-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 500;
 }

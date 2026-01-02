@@ -1,11 +1,11 @@
-/* page wrap */
+
 .gpu-page {
   min-height: 100vh;
   background: var(--border);
   padding: 20px;
 }
 
-/* title background section */
+
 .gpu-hero {
   background: var(--gpubg);
   padding: 0;
@@ -50,14 +50,14 @@
   padding-right: 10px;
 }
 
-/* right column */
+
 .gpu-right {
   overflow-y: auto;
   padding-right: 10px;
 }
 
 
-/* Search bar */
+
 .gpu-search {
   width: 100%;
   padding: .8rem 1rem;
@@ -66,14 +66,13 @@
   font-size: 1rem;
 }
 
-/* GPU list */
+
 .gpu-list {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-/* GPU card */
 .gpu-card {
   background: var(--border);
   padding: 1rem;
@@ -106,7 +105,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* search + sort bar */
+
 .gpu-right-header {
   position: sticky;
   top: 0;

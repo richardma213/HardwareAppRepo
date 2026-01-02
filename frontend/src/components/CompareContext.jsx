@@ -4,6 +4,7 @@ const CompareContext = createContext();
 
 export function CompareProvider({ children }) {
     
+  // Define cpuLists and gpuLists and save in local storage
     const [cpuList, setCpuList] = useState(() => {
       const saved = localStorage.getItem("cpuList");
       return saved ? JSON.parse(saved) : [];
@@ -24,22 +25,26 @@ export function CompareProvider({ children }) {
       efficiencyGPU: 0.2
     });
 
-
     useEffect(() => {localStorage.setItem("cpuList", JSON.stringify(cpuList));}, [cpuList]);
 
     useEffect(() => {localStorage.setItem("gpuList", JSON.stringify(gpuList));}, [gpuList]);
 
 
-
-    // CPU actions
     function addCPU(cpu) {setCpuList(prev => [...prev, cpu]);}
 
     function removeCPU(id) {setCpuList(prev => prev.filter(c => c.id !== id));}
 
-    // GPU actions
     function addGPU(gpu) {setGpuList(prev => [...prev, gpu]);}
 
     function removeGPU(id) {setGpuList(prev => prev.filter(g => g.id !== id));}
+
+    function clearCPUs(){
+      setCpuList([]);
+    }
+
+    function clearGPUs(){
+      setGpuList([]);
+    }
 
     return (
     <CompareContext.Provider value={{
@@ -50,7 +55,9 @@ export function CompareProvider({ children }) {
       removeCPU,
       removeGPU,
       weights,
-      setWeights
+      setWeights,
+      clearCPUs,
+      clearGPUs
       }}>
       {children}
     </CompareContext.Provider>

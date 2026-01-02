@@ -9,7 +9,6 @@
   z-index: 9999;
   box-shadow: 0 8px 30px rgba(0,0,0,0.35);
   cursor: default;
-  transition: height 0.2s ease, width 0.2s ease;
 }
 
 .baseline-window.minimized {

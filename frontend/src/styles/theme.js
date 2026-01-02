@@ -1,10 +1,10 @@
 export const lightTheme = {
-  bg: "#ffececff",
+  bg: "#fff8f8ff",
   card: "#ffffffff",
   text: "#1f1e1eff",
   border: "#f9f9f9ff",
   navbar: "rgb(238, 237, 255)",
-  gpubg: "#d0e0ffff"
+  gpubg: "#e2ecffff"
   
 };
 
