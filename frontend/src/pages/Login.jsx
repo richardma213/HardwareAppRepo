@@ -15,6 +15,9 @@ export default function Login() {
     e.preventDefault(); // stop browser from redirecting away from app
     setError("");
 
+    alert("Currently trying to login. Note: It may take up to a minute for the render server" +
+        " to start up. You will be directed to the home page if successful.")
+
     // Send call to backend for login
     const res = await fetch(`${API_URL}/login`, {
       method: "POST",

@@ -22,6 +22,9 @@ export default function Signup() {
 
 
     try {
+      alert("Currently signing up. Note: It may take up to a minute for the render server" +
+        " to start up. You will be redirected to login if it succeeds."
+      );
       // Try sending the api call to backend
       const res = await fetch(`${API_URL}/signup`, {
         method: "POST",
