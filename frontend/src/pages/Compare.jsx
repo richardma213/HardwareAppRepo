@@ -7,7 +7,7 @@ import { useBaseline } from "../components/BaselineContext";
 import { useLocation } from "react-router-dom";
 import ConfirmationPopup from "../components/ConfirmationPopup.jsx";
 const API_URL = process.env.REACT_APP_API_URL;
-
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 export default function Compare() {
   const { cpuList, gpuList, removeCPU, removeGPU, addCPU, addGPU, clearCPUs, clearGPUs } = useCompare();
   
@@ -218,7 +218,7 @@ export default function Compare() {
         return;
       }
 
-      const url = `${window.location.origin}/shared/${data.id}`;
+      const url = `${FRONTEND_URL}/shared/${data.id}`;
       navigator.clipboard.writeText(url);
       alert("Share link copied: " + url + ". Check share history in settings!");
 
