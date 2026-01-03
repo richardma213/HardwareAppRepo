@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./SharedReport.css";
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function SharedReport() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ export default function SharedReport() {
   useEffect(() => {
     async function fetchReport() {
       try {
-        const res = await fetch(`http://localhost:2000/api/shared/${id}`);
+        const res = await fetch(`${API_URL}/api/shared/${id}`);
 
         const data = await res.json();
 

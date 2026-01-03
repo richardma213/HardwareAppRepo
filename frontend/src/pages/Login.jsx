@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Login.css";
 import {Link} from "react-router-dom";
-
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Login() {
 
@@ -16,7 +16,7 @@ export default function Login() {
     setError("");
 
     // Send call to backend for login
-    const res = await fetch("http://localhost:2000/login", {
+    const res = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

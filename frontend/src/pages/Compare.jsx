@@ -6,6 +6,7 @@ import { calculateGpuScore, normalizeGpuMetrics} from "../data/gpuscoreinfo";
 import { useBaseline } from "../components/BaselineContext";
 import { useLocation } from "react-router-dom";
 import ConfirmationPopup from "../components/ConfirmationPopup.jsx";
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Compare() {
   const { cpuList, gpuList, removeCPU, removeGPU, addCPU, addGPU, clearCPUs, clearGPUs } = useCompare();
@@ -141,7 +142,7 @@ export default function Compare() {
       };
 
       try {
-         const res = await fetch("http://localhost:2000/save-report", {
+         const res = await fetch(`${API_URL}/save-report`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -203,7 +204,7 @@ export default function Compare() {
     };
 
     try {
-      const res = await fetch("http://localhost:2000/api/share-report", {
+      const res = await fetch(`${API_URL}/api/share-report`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ report })

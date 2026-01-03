@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {ReportCard} from "../pages/ReportCard.jsx";
 import ConfirmationPopup from "../components/ConfirmationPopup.jsx";
-
+const API_URL = process.env.REACT_APP_API_URL;
 /**
  * Class SavedReports handles the save report page and any actions 
  * (Delete reports, Load reports)
@@ -23,7 +23,7 @@ export default function SavedReports() {
     
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`http://localhost:2000/reports/${id}`, {
+    const res = await fetch(`${API_URL}/reports/${id}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Bearer ${token}`
@@ -47,7 +47,7 @@ export default function SavedReports() {
     const fetchReports = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:2000/reports", {
+      const res = await fetch(`${API_URL}/reports`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

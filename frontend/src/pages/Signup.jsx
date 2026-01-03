@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
 
 /* Function Page for User Signup / Auth */
 export default function Signup() {
@@ -22,7 +23,7 @@ export default function Signup() {
 
     try {
       // Try sending the api call to backend
-      const res = await fetch("http://localhost:2000/signup", {
+      const res = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })

@@ -8,13 +8,17 @@ import User from "./models/User.js";
 import {authMiddleware} from "./middleware/authMiddleware.js";
 import Report from "./models/Report.js";
 import SharedReports from "./models/SharedReports.js";
-
 // Activate and Hook everything
 dotenv.config(); 
+const FRONTEND_URL = process.env.FRONT_END_URL;
 const router = express.Router();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: FRONTEND_URL,
+  credentials: true
+}));
+
 app.use(express.json());
 connectDB();
 

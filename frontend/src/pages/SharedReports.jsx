@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ReportCard } from "../pages/ReportCard.jsx";
 import ConfirmationPopup from "../components/ConfirmationPopup.jsx";
-
+const API_URL = process.env.REACT_APP_API_URL;
+const PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL;
 /**
  * SharedReports displays all reports that were shared publicly.
  * Users can load them into the compare builder and delete them.
@@ -23,7 +24,7 @@ export default function SharedReports() {
   useEffect(() => {
     const fetchSharedReports = async () => {
       try {
-        const res = await fetch("http://localhost:2000/api/shared");
+        const res = await fetch(`${API_URL}/api/shared`);
         const data = await res.json();
 
         if (!Array.isArray(data)) {
@@ -49,7 +50,7 @@ export default function SharedReports() {
   // Delete shared report
   const handleDeleteShared = async (id) => {
     try {
-      const res = await fetch(`http://localhost:2000/api/shared/${id}`, {
+      const res = await fetch(`${API_URL}/api/shared/${id}`, {
         method: "DELETE",
       });
 
@@ -79,7 +80,7 @@ export default function SharedReports() {
           <ReportCard
             key={report._id}
             report={report}
-            shareLink={`http://localhost:3000/shared/${report._id}`}
+            shareLink={`${PUBLIC_URL}/shared/${report._id}`}
             onLoad={() => {
               setShowConfirmPopupLoad(true);
               setSelectedReport(report);
