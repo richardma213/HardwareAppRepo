@@ -5,10 +5,13 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Install serve globally
+RUN npm install -g serve
+
 COPY . .
 
 RUN npm run build
 
 EXPOSE 3000
 
-CMD ["npx", "serve", "-s", "build"]
+CMD ["serve", "-s", "build"]
