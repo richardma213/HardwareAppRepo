@@ -9,6 +9,7 @@ COPY frontend ./
 
 RUN npm run build
 
-# Serve the build
 RUN npm install -g serve
-CMD ["serve", "-s", "dist"]
+
+ENV PORT=8080
+CMD ["serve", "-s", "build", "-l", "8080"]
