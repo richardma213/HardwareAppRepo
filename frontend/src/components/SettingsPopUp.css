@@ -39,7 +39,7 @@
   justify-content: space-between;
   margin-top: 20px;
   color: var(--text); 
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .logout-button {
@@ -70,4 +70,16 @@
 
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.button-group .settings-item {
+  margin-top: 0;
+  padding-bottom: 0;
 }

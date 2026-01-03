@@ -33,9 +33,6 @@
   gap: 2rem;
 }
 
-
-
-
 .report-header h2 {
   margin: 0;
   font-size: 1.6rem;
@@ -86,3 +83,14 @@
   margin: 0.2rem 0;
   line-height: 1.4;
 }
+.copy-link-btn {
+  margin-top: 0.5rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 600;
+  
+}
+

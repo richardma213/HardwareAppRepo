@@ -18,6 +18,8 @@ import BaselineWindow from "./components/BaselineWindow.jsx";
 import ProtectedRoute  from "./pages/ProtectedRoute.jsx";
 import BenchReportInfo from "./components/BenchReportInfo.jsx";
 import SavedReports from "./pages/SavedReports.jsx";
+import SharedReport from "./pages/SharedReport.jsx";
+import SharedReports from "./pages/SharedReports.jsx";
 
 // Core class
 function App() {
@@ -50,6 +52,7 @@ function App() {
             {/* Public routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/shared/:id" element={<SharedReport />} />
 
             {/* Protected routes */}
             <Route
@@ -105,6 +108,16 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              path="/shared-reports"
+              element={
+                <ProtectedRoute>
+                  <SharedReports />
+                </ProtectedRoute>
+              }
+            />
+
 
           </Routes>
 

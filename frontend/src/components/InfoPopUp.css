@@ -16,12 +16,11 @@
   color: var(--text);             
   width: 500px;
   max-width: 90%;
-  padding: 25px;
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid var(--border); 
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   position: relative;
-  animation: fadeIn 0.2s ease-out;
 }
 
 .info-close {
@@ -31,7 +30,6 @@
   background: none;
   border: none;
   font-size: 1.4rem;
-  cursor: pointer;
   color: var(--text); 
 }
 

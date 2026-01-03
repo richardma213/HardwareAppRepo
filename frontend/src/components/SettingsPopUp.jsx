@@ -59,6 +59,8 @@ export default function SettingsPopup({
       </div>
        )}
 
+       <div className="settings-item button-group">
+
        {(user || localStorage.getItem("guest")) && (
           <div className="settings-item">
             <button className="saved-rep-button nav-link"
@@ -72,6 +74,21 @@ export default function SettingsPopup({
             </button>
           </div>
         )}
+
+        {(user || localStorage.getItem("guest")) && (
+          <div className="settings-item">
+            <button
+              className="saved-rep-button nav-link"
+              onClick={() => {
+                onClose();
+                window.location.href = "/shared-reports";
+              }}
+            >
+              <strong> View Shared Reports </strong>
+            </button>
+          </div>
+        )}
+      </div>
 
 
       {(user || localStorage.getItem("guest")) && ( 
@@ -87,7 +104,8 @@ export default function SettingsPopup({
 
       {showConfirmLogout && (
         <ConfirmationPopup
-          message="Are you sure you want to log out?"
+          message="Are you sure you want to log out? Any
+          unsaved data will be discarded."
           onConfirm={() => {
             // Clear storage
             localStorage.removeItem("token");

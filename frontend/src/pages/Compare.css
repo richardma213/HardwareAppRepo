@@ -41,7 +41,7 @@
 }
 
 .compare-card {
-  background: var(--bg2, var(--border)); /* fallback if bg2 not defined */
+  background: var(--bg2, var(--border)); 
   padding: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -74,9 +74,7 @@
   transition: 0.15s ease;
 }
 
-.compare-remove-btn:hover {
-  background: #e63939;
-}
+
 .report-card-final {
   background: var(--card);
   border: 1px solid var(--border);
@@ -131,4 +129,27 @@
 
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+.share-report-button{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: var(--bg);
+  color: var(--text);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+
+.report-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 1rem; 
 }

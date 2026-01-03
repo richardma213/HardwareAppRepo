@@ -1,6 +1,6 @@
 import "./SavedReports.css";
 
-export function ReportCard({ report, onLoad, onDelete }) {
+export function ReportCard({ report, onLoad, onDelete, shareLink }) {
   const { weights, cpus, gpus, createdAt } = report;
 
   return (
@@ -16,6 +16,18 @@ export function ReportCard({ report, onLoad, onDelete }) {
         <button onClick={() => onDelete(report._id)} className="delete-report-button">
           Delete
         </button>
+
+        {shareLink && (
+          <button
+            className="copy-link-btn"
+            onClick={() => {navigator.clipboard.writeText(shareLink)
+              alert("copied share link!");}
+            }
+          >
+            Copy Share Link
+          </button>
+        )}
+
       </div>
 
       <div className="report-list">

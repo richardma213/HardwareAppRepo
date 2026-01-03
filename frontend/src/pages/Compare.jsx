@@ -5,7 +5,7 @@ import { calculateScore as calculateCPUScore, normalizeCpuMetrics } from "../dat
 import { calculateGpuScore, normalizeGpuMetrics} from "../data/gpuscoreinfo";
 import { useBaseline } from "../components/BaselineContext";
 import { useLocation } from "react-router-dom";
-
+import ConfirmationPopup from "../components/ConfirmationPopup.jsx";
 
 export default function Compare() {
   const { cpuList, gpuList, removeCPU, removeGPU, addCPU, addGPU, clearCPUs, clearGPUs } = useCompare();
@@ -156,7 +156,7 @@ export default function Compare() {
             return alert(data.message || "failed to save report");
           }
 
-          alert("report saved successfully");
+          alert("report saved successfully, check history in settings!");
 
       }catch (e){
         console.error(e);
@@ -194,9 +194,44 @@ export default function Compare() {
       setWeights
     ]);
 
+  async function handleShare() {
+    const report = {
+      weights,
+      cpus: detailedCPUs,
+      gpus: detailedGPUs,
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      const res = await fetch("http://localhost:2000/api/share-report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ report })
+      });
+
+      const data = await res.json();
+      console.log("Share response:", data);
+
+      if (!res.ok) {
+        alert("Share failed: " + (data.error || "Unknown error"));
+        return;
+      }
+
+      const url = `${window.location.origin}/shared/${data.id}`;
+      navigator.clipboard.writeText(url);
+      alert("Share link copied: " + url + ". Check share history in settings!");
+
+    } catch (err) {
+      console.error("Share error:", err);
+      alert("Network error while sharing.");
+    }
+  }
+
+  // States for save/share confirmation window
+  const [saveConfirmation, setSaveConfirmation] = useState(false);
+  const [shareConfirmation, setShareConfirmation] = useState(false);
 
 
-    
   return (
     <div className="compare-page">
 
@@ -475,13 +510,41 @@ export default function Compare() {
               <h2>Final Generated Report</h2>
             </div>
 
+          <div className= "report-actions-row"> 
             <button
               type="button"
               className="save-report-button"
-              onClick={handleSaveReport}
+              onClick={() => setSaveConfirmation(true)}
             >
               Save Report
             </button>
+          
+            <button type="button" className="share-report-button" onClick={() => setShareConfirmation(true)}>Share Report</button>
+          </div>
+
+          {saveConfirmation && (
+            <ConfirmationPopup
+            message="Are you sure you want to save this report?"
+            onConfirm={() => {
+              handleSaveReport();
+              setSaveConfirmation(false);
+            }}
+            onCancel={() => setSaveConfirmation(false)}>
+
+            </ConfirmationPopup>
+          )}
+
+          {shareConfirmation && (
+            <ConfirmationPopup
+            message= "Are you sure you want to share this report?"
+            onConfirm={() => {
+              handleShare(); 
+              setShareConfirmation(false);
+            }}
+            onCancel={() => setShareConfirmation(false)}>
+
+            </ConfirmationPopup>
+          )}
 
              <div className="report-item">
                   <h3>Weights Used</h3>

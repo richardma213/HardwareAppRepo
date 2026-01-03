@@ -46,7 +46,10 @@ export default function InfoPopup({ open, onClose }) {
             rewards GPUs/CPUs that deliver more performance per watt.
           </p>
         </div>
+
       </div>
+
+      
     </div>
   );
 }
