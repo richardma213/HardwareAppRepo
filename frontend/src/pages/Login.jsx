@@ -8,34 +8,39 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   /* Function to handle login */
   async function handleLogin(e) {
 
     e.preventDefault(); // stop browser from redirecting away from app
     setError("");
+    setLoading(true);
 
-    alert("Currently trying to login. Note: It may take up to a minute for the render server" +
-        " to start up. You will be directed to the home page if successful.")
+    try {
+      // Send call to backend for login
+      const res = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    // Send call to backend for login
-    const res = await fetch(`${API_URL}/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+      const data = await res.json();
 
-    const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Login failed");
+        return;
+      }
 
-    if (!res.ok) {
-      setError(data.error || "Login failed");
-      return;
+      // do on success
+      localStorage.setItem("token", data.token);
+      localStorage.removeItem("guest");
+      window.location.href = "/";
+    } catch (e){
+      setError("something went wrong: " + e);
+    } finally {
+      setLoading(false);
     }
-
-    // do on success
-    localStorage.setItem("token", data.token);
-    localStorage.removeItem("guest");
-    window.location.href = "/";
   }
 
   return (
@@ -65,7 +70,9 @@ export default function Login() {
             onChange={e => setPassword(e.target.value)}
           />
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login" }
+          </button>
 
           <div className="auth-switch">
             Don’t have an account? <Link to="/signup">Sign up</Link>
