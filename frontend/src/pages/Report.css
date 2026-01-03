@@ -6,7 +6,7 @@
 }
 
 .report-page {
-  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   background: var(--border);
   padding-bottom: 3rem; 

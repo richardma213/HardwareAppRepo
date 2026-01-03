@@ -43,7 +43,7 @@ html, body {
 
 
 .cpu-page {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--border);
   padding: 20px;
 }
