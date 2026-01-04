@@ -43,6 +43,7 @@ Comparison/Report page:
 - Copilot for assisted coding
 
 2. Workflow:
+
 -First started with basic UI and pages (Home) and backend testing
 -Built scoring logic system (weight normalization, baseline comparisons, and diminishing returns)
 and used sample datasets
