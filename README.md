@@ -1,5 +1,5 @@
 # HardwareAppRepo
-Full-Stack Benchmarking Platform for GPU/CPU Performance
+Full-Stack Benchmarking Platform for GPU/CPU Performance Metrics
 
 # Description
 BenchReport is a full stack React + Node.js application for analyzing, comparing, and sharing computer hardware benchmark data. 
@@ -14,7 +14,7 @@ BenchReport is currently live on Vercel at: https://hardware-app-repo.vercel.app
 - Navigate to the signup page to create an account.
 - The backend is hosted on Render — it may take up to one minute to spin up if idle.
 - After signup, you will be redirected to the login page.
-- Upon logging in, you can begin running benchmarks and viewing reports.
+- Upon logging in, you can begin running benchmarks and viewing reports. Click the info button for more instructions!
 
 # Screenshots
 Home page: 
@@ -61,6 +61,5 @@ for everyone, in that some users prioritize efficiency while others may need hig
 - Actually the original idea also partly came from talking to AI asking for GTA 6 hardware recommendations, and I realized that this
 could be something that would be actaully useful.
 
--Anyways, if I were to expand this, I would definately include a blogs page, maybe AI assisted recommendations, more specs (ie RAM types, full pc builds, real time 
-price fetching) that would make it even more useful!
+-Anyways, if I were to expand this, I would definately include a blogs page, public accounts, maybe AI assisted recommendations, more specs (ie RAM types, full pc builds, real time price fetching) that would make it even more useful as a true software tool!
 
