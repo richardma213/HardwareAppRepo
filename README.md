@@ -14,8 +14,8 @@ BenchReport is currently live at: https://hardware-app-repo.vercel.app   [copy a
 - Navigate to the signup page to create an account. (use any email and password: ie user@gmail.com)
 - The backend is hosted on Render — it may take up to one minute to spin up if idle.
 - After signup, you will be redirected to the login page.
-- Upon logging in, you can begin running benchmarks and viewing reports. C
-- lick the info button on the navbar for more instructions!
+- Upon logging in, you can begin running benchmarks and viewing reports.
+- Click the info button on the navbar for more instructions! And turn on dark mode in settings!
 
 # Screenshots
 Home page: 
@@ -27,7 +27,7 @@ GPU selection page:
 
 
 Comparison/Report page:
-![Dashboard](./images/Demo3.png)
+![Dashboard](./images/Demo4.png)
 
 
 # Development Process
@@ -44,9 +44,8 @@ Comparison/Report page:
 
 2. Workflow:
 
--First started with basic UI and pages (Home) and backend testing
--Built scoring logic system (weight normalization, baseline comparisons, and diminishing returns)
-and used sample datasets
+- First started with basic UI and pages (Home) and backend testing
+- Built scoring logic system (weight normalization, baseline comparisons, and diminishing returns) and used sample datasets
 - Implemented Login/Signup and auth routes + guest mode feature
 - Integrated backend (server.js) and frontend via REST API
 - Added benchmark report saving, loading, and sharing features
@@ -70,5 +69,5 @@ transparent and customizable as possible and genuinely useful for decision makin
 - Actually the original idea also partly came from talking to AI asking for GTA 6 hardware recommendations, and I realized that this
 could be something that would be actaully useful.
 
--Anyways, if I were to expand this, I would definately include a blogs page, public accounts, maybe AI assisted recommendations, more specs (ie RAM types, full pc builds, real time price fetching) that would make it even more useful as a true software tool! And maybe overhaul the UI with Vite + Tailwind CSS and improve mobile sizing.
+- Anyways, if I were to expand this, I would definately include a blogs page, public accounts, maybe AI assisted recommendations, more specs (ie RAM types, full pc builds, real time price fetching) that would make it even more useful as a true software tool! And maybe overhaul the UI with Vite + Tailwind CSS and improve mobile sizing.
 
