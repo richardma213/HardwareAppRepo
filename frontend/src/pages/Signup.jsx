@@ -26,7 +26,7 @@ export default function Signup() {
         " to start up. You will be redirected to login if it succeeds."
       );
       // Try sending the api call to backend
-      const res = await fetch(`${API_URL}/signup`, {
+      const res = await fetch(`${API_URL}/api/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
