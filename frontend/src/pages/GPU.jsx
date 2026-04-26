@@ -14,7 +14,7 @@ export default function GPU() {
   const [showInfo, setShowInfo] = useState(false);
   const { gpuList, addGPU, removeGPU } = useCompare();
 
-  const { baselineCPU, baselineGPU } = useBaseline();
+  const { baselineGPU } = useBaseline();
    
   const [weights, setWeights] = useState({
     clock: 0.5,

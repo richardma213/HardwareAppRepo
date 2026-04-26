@@ -16,7 +16,7 @@ export default function CPU() {
   const { cpuList, addCPU, removeCPU } = useCompare();
 
   
-  const { baselineCPU, baselineGPU } = useBaseline();
+  const { baselineCPU } = useBaseline();
 
   const [weights, setWeights] = useState({
     clockSpeed: 0.4,
