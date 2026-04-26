@@ -18,13 +18,15 @@ BenchReport is currently live at: https://hardware-app-repo.vercel.app   [copy a
 - Click the info button on the navbar for more instructions! And turn on dark mode in settings!
 
 # Screenshots
-Home page: 
+Login/Signup page: 
 ![Dashboard](./images/Demo1.png)
 
 
-GPU selection page:
+Home page:
 ![Dashboard](./images/Demo2.png)
 
+GPU Selection Page:
+![Dashboard](./images/Demo3.png)
 
 Comparison/Report page:
 ![Dashboard](./images/Demo4.png)
