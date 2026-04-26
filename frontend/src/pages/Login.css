@@ -17,6 +17,16 @@
   animation: authGradientFlow 12s ease-in-out infinite;
 }
 
+.dark .auth-wrapper {
+  --auth-grad-1: #0d1b3d;
+  --auth-grad-2: #12306f;
+  --auth-grad-3: #1a4b98;
+  --auth-card-bg: rgba(18, 27, 45, 0.82);
+  --auth-border: rgba(133, 168, 255, 0.24);
+  --auth-text-dark: #e8f0ff;
+  --auth-focus: #5f94ff;
+}
+
 .auth-wrapper::before,
 .auth-wrapper::after {
   content: "";
@@ -41,6 +51,14 @@
   right: -70px;
   bottom: -70px;
   background: rgba(72, 35, 129, 0.28);
+}
+
+.dark .auth-wrapper::before {
+  background: rgba(72, 108, 202, 0.22);
+}
+
+.dark .auth-wrapper::after {
+  background: rgba(19, 52, 120, 0.34);
 }
 
 .auth-hero {
@@ -109,10 +127,20 @@
   transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
+.dark .auth-card input {
+  border: 1px solid rgba(137, 170, 255, 0.3);
+  color: #eaf1ff;
+  background: rgba(21, 33, 56, 0.84);
+}
+
 .auth-card input:focus {
   border-color: var(--auth-focus);
   box-shadow: 0 0 0 4px rgba(12, 111, 143, 0.18);
   transform: translateY(-1px);
+}
+
+.dark .auth-card input:focus {
+  box-shadow: 0 0 0 4px rgba(95, 148, 255, 0.2);
 }
 
 .auth-card button {
@@ -130,6 +158,10 @@
   background: linear-gradient(95deg, #3f7bff, #7a43f2, #f857a6);
   background-size: 180% 180%;
   transition: transform 200ms ease, box-shadow 200ms ease, background-position 320ms ease, opacity 200ms ease;
+}
+
+.dark .auth-card button {
+  background: linear-gradient(95deg, #1d3f89, #2f5fc6, #4d83ff);
 }
 
 .auth-card button:hover:not(:disabled) {
@@ -152,6 +184,10 @@
   color: #21455c;
 }
 
+.dark .auth-switch {
+  color: #d5e3ff;
+}
+
 .auth-switch a {
   color: #5a48d6;
   font-weight: 700;
@@ -159,9 +195,17 @@
   transition: color 200ms ease;
 }
 
+.dark .auth-switch a {
+  color: #8bb0ff;
+}
+
 .auth-switch a:hover {
   color: #7638cf;
   text-decoration: underline;
+}
+
+.dark .auth-switch a:hover {
+  color: #c0d4ff;
 }
 
 .auth-error {
