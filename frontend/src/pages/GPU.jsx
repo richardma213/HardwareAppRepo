@@ -107,7 +107,7 @@ export default function GPU() {
       <h1 className="gpu-title">GPU Selector</h1>
 
       <p className="gpu-subtitle">
-        Browse GPUs and see relative performance scores →
+        Browse GPUs and see relative performance scores{"  "}
         <button
           className="info-button"
           onClick={() => setShowInfo(true)}

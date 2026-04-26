@@ -46,7 +46,7 @@ export default function BenchReportInfo({ open, onClose }){
                                 <p> Once your selections are ready, head to the 
                                 <strong> Report</strong> page. You'll get a clean, 
                                 printable summary of all chosen hardware, including scores, specs, and recommendations. 
-                                Then proceed to the <strong> Compare Page</strong>for the customizable comparison and generate a final report</p> 
+                                Then proceed to the <strong> Compare Page</strong> for the customizable comparison and generate a final report</p> 
                         </div> 
                         <div class="info-section"> 
                             <h3>Guest Mode</h3> 

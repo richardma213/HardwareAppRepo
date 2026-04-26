@@ -6,10 +6,11 @@
 }
 
 .report-page {
-  height: 100dvh;
+  height: calc(100dvh - 72px);
   overflow-y: auto;
   background: var(--border);
-  padding-bottom: 3rem; 
+  padding-bottom: 5rem;
+  box-sizing: border-box;
 }
 
 .report-title {

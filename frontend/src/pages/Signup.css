@@ -20,11 +20,13 @@
 .dark .auth-wrapper {
   --auth-grad-1: #0d1b3d;
   --auth-grad-2: #12306f;
-  --auth-grad-3: #1a4b98;
+  --auth-grad-3: #3f78d8;
   --auth-card-bg: rgba(18, 27, 45, 0.82);
   --auth-border: rgba(133, 168, 255, 0.24);
   --auth-text-dark: #e8f0ff;
   --auth-focus: #5f94ff;
+  background-size: 260% 260%;
+  animation: authGradientFlow 10s ease-in-out infinite;
 }
 
 .auth-wrapper::before,
@@ -59,6 +61,7 @@
 
 .dark .auth-wrapper::after {
   background: rgba(19, 52, 120, 0.34);
+  animation: authDarkAura 8s ease-in-out infinite;
 }
 
 .auth-hero {
@@ -230,6 +233,18 @@
   }
 }
 
+@keyframes authDarkAura {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.16);
+  }
+}
+
 @media (max-width: 640px) {
   .auth-content {
     padding: 1rem 0.85rem 2.2rem;
@@ -242,6 +257,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .auth-wrapper,
+  .auth-wrapper,
+  .dark .auth-wrapper::after,
   .auth-card button {
     animation: none;
   }

@@ -103,7 +103,7 @@ export default function CPU() {
         <h1 className="cpu-title">CPU Selector</h1>
 
         <p className="cpu-subtitle">
-          Browse CPUs and add them to your comparison list →
+          Browse CPUs and add them to your comparison list {"  "}
           <button
             className="info-button"
             onClick={() => setShowInfo(true)}

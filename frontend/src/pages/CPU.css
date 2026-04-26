@@ -25,7 +25,9 @@ html, body {
   padding: 10px 0;
   z-index: 10;
   border-bottom: 1px solid #ddd;
-  
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 
