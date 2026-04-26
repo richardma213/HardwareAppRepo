@@ -88,6 +88,9 @@ html, body {
 
 .cpu-search {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
   padding: .8rem 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
