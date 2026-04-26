@@ -43,17 +43,28 @@
 }
 
 .logout-button {
-  width: 100%;
-  padding: 16px 0;
-  margin-top: auto;          
-  background: var(--gpubg);  
+  width: auto;
+  min-width: 132px;
+  padding: 10px 18px;
+  margin: 14px 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
   color: var(--text);
-  border: none;
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1;
   cursor: pointer;
   text-align: center;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.logout-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .saved-rep-button {

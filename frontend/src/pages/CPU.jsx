@@ -125,7 +125,7 @@ export default function CPU() {
 
           <div className="weight-controls">
 
-            <Card>
+            <Card className="jchart-overlay-card">
               <h2 style={{ color: "#fff", marginBottom: "10px" }}>
                 Weight Distribution
               </h2>
@@ -133,7 +133,7 @@ export default function CPU() {
               <WeightRadarChart weights={normalized} />
             </Card>
 
-            <Card>
+            <Card className="jchart-overlay-card">
               <div className="cpu-weight-grid">
 
                 {/* clock speed */}

@@ -128,7 +128,7 @@ export default function GPU() {
       {/* left column */}
       <div className="gpu-left">
 
-        <Card>
+        <Card className="jchart-overlay-card">
           <h2 style={{ color: "#fff", marginBottom: "10px" }}>
             Weight Distribution
           </h2>
@@ -137,7 +137,7 @@ export default function GPU() {
         </Card>
 
         <div className="gpu-weights">
-          <Card>
+          <Card className="jchart-overlay-card">
             <div className="gpu-weight-grid">
 
               {/* clock */}

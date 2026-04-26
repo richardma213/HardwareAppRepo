@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar({ setShowSettings, setShowBenchReportInfo }) {
+  const { pathname } = useLocation();
+  const isAuthRoute = pathname === "/login" || pathname === "/signup";
   
   const hasAccess = Boolean(localStorage.getItem("token") || localStorage.getItem("guest"));
   const isGuest = Boolean(localStorage.getItem("guest"));
@@ -10,7 +12,7 @@ export default function Navbar({ setShowSettings, setShowBenchReportInfo }) {
   return (
 
     
-    <nav className="navbar">
+    <nav className={`navbar ${isAuthRoute ? "auth-nav" : ""}`}>
       <div className="nav-left">
         <Link to="/" className="logo">BenchReport 🖥️</Link>
           <div >

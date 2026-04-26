@@ -93,7 +93,7 @@ export default function SettingsPopup({
 
       {(user || localStorage.getItem("guest")) && ( 
       <button
-          className="nav-link logout-button"
+          className="logout-button"
           onClick={() => { setshowConfirmLogout(true)}}
        >
           Logout

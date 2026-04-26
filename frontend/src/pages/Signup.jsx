@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Signup.css";
 const API_URL = process.env.REACT_APP_API_URL;
 
 /* Function Page for User Signup / Auth */

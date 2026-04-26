@@ -149,3 +149,18 @@ html, body {
 .weight-slider {
   flex: 1;
 }
+
+.jchart-overlay-card {
+  background: linear-gradient(165deg, rgba(30, 35, 56, 0.92) 0%, rgba(47, 38, 72, 0.92) 100%) !important;
+  border: 1px solid rgba(170, 180, 240, 0.24) !important;
+  color: #ffffff !important;
+}
+
+.jchart-overlay-card p,
+.jchart-overlay-card span,
+.jchart-overlay-card li,
+.jchart-overlay-card label,
+.jchart-overlay-card h2,
+.jchart-overlay-card h3 {
+  color: #ffffff;
+}
