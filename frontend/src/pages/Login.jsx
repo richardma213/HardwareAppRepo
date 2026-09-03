@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Login.css";
 import {Link} from "react-router-dom";
 const API_URL = process.env.REACT_APP_API_URL;
@@ -9,6 +9,18 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  /* Show a one-time notice that the backend (Render free tier) needs a minute to spin up */
+  useEffect(() => {
+    if (!localStorage.getItem("backendNoticeShown")) {
+      window.alert(
+        "Heads up: the backend is hosted on a free Render server that sleeps when idle. " +
+        "The first login, signup, or search after opening the app may take up to a minute " +
+        "while the server wakes up. Later requests are fast."
+      );
+      localStorage.setItem("backendNoticeShown", "true");
+    }
+  }, []);
 
   /* Function to handle login */
   async function handleLogin(e) {
