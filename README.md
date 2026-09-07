@@ -32,6 +32,15 @@ Comparison/Report page:
 ![Dashboard](./images/Demo4.png)
 
 
+# Data Sources & Credits
+
+BenchReport's performance scores are anchored to real third-party benchmark data. Full credit to the following sources:
+
+- **PassMark Software** ([cpubenchmark.net](https://www.cpubenchmark.net), [videocardbenchmark.net](https://www.videocardbenchmark.net)) — the underlying CPU Mark / G3D Mark aggregate benchmark scores used as the backbone of the scoring model.
+- **Kaggle — "GPU Benchmarks Compilation" & "CPU Benchmarks Compilation"** by user *alanjo* ([GPU](https://www.kaggle.com/datasets/alanjo/gpu-benchmarks), [CPU](https://www.kaggle.com/datasets/alanjo/cpu-benchmarks)) — the PassMark-derived CSV compilations used to populate benchmark values for the hardware catalog. The source CSVs are kept under `frontend/src/data/raw/` for provenance.
+
+The Kaggle snapshots are from 2022, so the catalog covers hardware released up to early 2022 (~53 GPUs, ~56 CPUs). All benchmark data is used for non-commercial, educational/portfolio purposes and remains the property of PassMark Software. Hardware specifications (clocks, VRAM, core/thread counts) are compiled from public manufacturer data. Where a component has no third-party benchmark, its score falls back to a spec-based estimate (see `SCORING.md`).
+
 # Development Process
 
 1. Tools & Technologies:
