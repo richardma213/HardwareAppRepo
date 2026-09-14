@@ -55,31 +55,32 @@ export const gpuData = [
 
   // --- AMD Radeon RX 5000 Series (RDNA) ---
   { id: 33, name: "AMD Radeon RX 5500 XT",         vram: 8,  tdp: 130, baseClock: "1717 MHz", boostClock: "1845 MHz", benchmark: 9188 },
-  { id: 34, name: "AMD Radeon RX 5600 XT",         vram: 6,  tdp: 150, baseClock: "1235 MHz", boostClock: "1620 MHz", benchmark: 13836 },
-  { id: 35, name: "AMD Radeon RX 5700",            vram: 8,  tdp: 180, baseClock: "1465 MHz", boostClock: "1725 MHz", benchmark: 14729 },
-  { id: 36, name: "AMD Radeon RX 5700 XT",         vram: 8,  tdp: 225, baseClock: "1605 MHz", boostClock: "1905 MHz", benchmark: 16892 },
+  { id: 34, name: "AMD Radeon RX 5600",            vram: 6,  tdp: 150, baseClock: "1130 MHz", boostClock: "1560 MHz", benchmark: 11030 },
+  { id: 35, name: "AMD Radeon RX 5600 XT",         vram: 6,  tdp: 150, baseClock: "1235 MHz", boostClock: "1620 MHz", benchmark: 13836 },
+  { id: 36, name: "AMD Radeon RX 5700",            vram: 8,  tdp: 180, baseClock: "1465 MHz", boostClock: "1725 MHz", benchmark: 14729 },
+  { id: 37, name: "AMD Radeon RX 5700 XT",         vram: 8,  tdp: 225, baseClock: "1605 MHz", boostClock: "1905 MHz", benchmark: 16892 },
 
   // --- AMD Radeon RX 6000 Series (RDNA 2) ---
-  { id: 37, name: "AMD Radeon RX 6400",            vram: 4,  tdp: 53,  baseClock: "1923 MHz", boostClock: "2321 MHz", benchmark: 6958 },
-  { id: 38, name: "AMD Radeon RX 6500 XT",         vram: 4,  tdp: 107, baseClock: "2310 MHz", boostClock: "2825 MHz", benchmark: 9445 },
-  { id: 39, name: "AMD Radeon RX 6600",            vram: 8,  tdp: 132, baseClock: "1626 MHz", boostClock: "2491 MHz", benchmark: 13881 },
-  { id: 40, name: "AMD Radeon RX 6600 XT",         vram: 8,  tdp: 160, baseClock: "1968 MHz", boostClock: "2589 MHz", benchmark: 15853 },
-  { id: 41, name: "AMD Radeon RX 6700 XT",         vram: 12, tdp: 230, baseClock: "2321 MHz", boostClock: "2581 MHz", benchmark: 18993 },
-  { id: 42, name: "AMD Radeon RX 6800",            vram: 16, tdp: 250, baseClock: "1700 MHz", boostClock: "2105 MHz", benchmark: 20667 },
-  { id: 43, name: "AMD Radeon RX 6800 XT",         vram: 16, tdp: 300, baseClock: "1825 MHz", boostClock: "2250 MHz", benchmark: 23364 },
-  { id: 44, name: "AMD Radeon RX 6900 XT",         vram: 16, tdp: 300, baseClock: "1825 MHz", boostClock: "2250 MHz", benchmark: 25458 },
+  { id: 38, name: "AMD Radeon RX 6400",            vram: 4,  tdp: 53,  baseClock: "1923 MHz", boostClock: "2321 MHz", benchmark: 6958 },
+  { id: 39, name: "AMD Radeon RX 6500 XT",         vram: 4,  tdp: 107, baseClock: "2310 MHz", boostClock: "2825 MHz", benchmark: 9445 },
+  { id: 40, name: "AMD Radeon RX 6600",            vram: 8,  tdp: 132, baseClock: "1626 MHz", boostClock: "2491 MHz", benchmark: 13881 },
+  { id: 41, name: "AMD Radeon RX 6600 XT",         vram: 8,  tdp: 160, baseClock: "1968 MHz", boostClock: "2589 MHz", benchmark: 15853 },
+  { id: 42, name: "AMD Radeon RX 6700 XT",         vram: 12, tdp: 230, baseClock: "2321 MHz", boostClock: "2581 MHz", benchmark: 18993 },
+  { id: 43, name: "AMD Radeon RX 6800",            vram: 16, tdp: 250, baseClock: "1700 MHz", boostClock: "2105 MHz", benchmark: 20667 },
+  { id: 44, name: "AMD Radeon RX 6800 XT",         vram: 16, tdp: 300, baseClock: "1825 MHz", boostClock: "2250 MHz", benchmark: 23364 },
+  { id: 45, name: "AMD Radeon RX 6900 XT",         vram: 16, tdp: 300, baseClock: "1825 MHz", boostClock: "2250 MHz", benchmark: 25458 },
 
   // --- AMD Radeon Vega / VII ---
-  { id: 45, name: "AMD Radeon RX Vega 56",         vram: 8,  tdp: 210, baseClock: "1156 MHz", boostClock: "1471 MHz", benchmark: 13636 },
-  { id: 46, name: "AMD Radeon RX Vega 64",         vram: 8,  tdp: 295, baseClock: "1247 MHz", boostClock: "1546 MHz", benchmark: 14636 },
-  { id: 47, name: "AMD Radeon VII",                vram: 16, tdp: 300, baseClock: "1400 MHz", boostClock: "1750 MHz", benchmark: 16767 },
+  { id: 46, name: "AMD Radeon RX Vega 56",         vram: 8,  tdp: 210, baseClock: "1156 MHz", boostClock: "1471 MHz", benchmark: 13636 },
+  { id: 47, name: "AMD Radeon RX Vega 64",         vram: 8,  tdp: 295, baseClock: "1247 MHz", boostClock: "1546 MHz", benchmark: 14636 },
+  { id: 48, name: "AMD Radeon VII",                vram: 16, tdp: 300, baseClock: "1400 MHz", boostClock: "1750 MHz", benchmark: 16767 },
 
   // --- Integrated GPUs ---
-  { id: 48, name: "Intel UHD Graphics 630",        vram: 1,  tdp: 15,  baseClock: "350 MHz",  boostClock: "1200 MHz", benchmark: 1293 },
-  { id: 49, name: "Intel UHD Graphics 730",        vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1300 MHz", benchmark: 1553 },
-  { id: 50, name: "Intel UHD Graphics 770",        vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1550 MHz", benchmark: 2611 },
-  { id: 51, name: "Intel Iris Xe Graphics",        vram: 1,  tdp: 15,  baseClock: "400 MHz",  boostClock: "1300 MHz", benchmark: 2782 },
-  { id: 52, name: "AMD Radeon Vega 8",             vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1100 MHz", benchmark: 1593 },
-  { id: 53, name: "AMD Radeon RX Vega 11",         vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1300 MHz", benchmark: 2137 },
+  { id: 49, name: "Intel UHD Graphics 630",        vram: 1,  tdp: 15,  baseClock: "350 MHz",  boostClock: "1200 MHz", benchmark: 1293 },
+  { id: 50, name: "Intel UHD Graphics 730",        vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1300 MHz", benchmark: 1553 },
+  { id: 51, name: "Intel UHD Graphics 770",        vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1550 MHz", benchmark: 2611 },
+  { id: 52, name: "Intel Iris Xe Graphics",        vram: 1,  tdp: 15,  baseClock: "400 MHz",  boostClock: "1300 MHz", benchmark: 2782 },
+  { id: 53, name: "AMD Radeon Vega 8",             vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1100 MHz", benchmark: 1593 },
+  { id: 54, name: "AMD Radeon RX Vega 11",         vram: 1,  tdp: 15,  baseClock: "300 MHz",  boostClock: "1300 MHz", benchmark: 2137 },
 
 ];

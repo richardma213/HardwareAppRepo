@@ -7,16 +7,16 @@
 // own) and for any future catalog part added without one. Every real
 // catalog part uses its own real benchmark field directly. See SCORING.md.
 //
-//   GPU:  benchmark = e^k * boostClock^a * vram^b * tdp^c        (R^2 = 0.94911, n = 53)
+//   GPU:  benchmark = e^k * boostClock^a * vram^b * tdp^c        (R^2 = 0.948944, n = 54)
 //   CPU:  benchmark = e^k * boostClock^a * cores^b * threads^c * tdp^d   (R^2 = 0.876019, n = 56)
 
 export const GPU_MODEL = {
-  k: 1.779184,
-  a: 0.54148,
-  b: 0.07679,
-  c: 0.695072,
-  r2: 0.94911,
-  n: 53,
+  k: 1.756955,
+  a: 0.545498,
+  b: 0.079385,
+  c: 0.692259,
+  r2: 0.948944,
+  n: 54,
   fitDate: "2026-09-14",
 };
 
