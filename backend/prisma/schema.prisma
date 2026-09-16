@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Which catalog a component belongs to. Mirrors the frontend's gpuData/cpuData split.
+enum Category {
+  CPU
+  GPU
+}
+
+// One row per distinct component name that's ever been picked in a saved report.
+// This is the "dimension" table the leaderboard counts against.
+model Component {
+  id       Int               @id @default(autoincrement())
+  name     String            @unique
+  category Category
+  picks    ReportComponent[]
+}
+
+// Mirrors one Mongo report doc, linked back by its Mongo _id. Doesn't duplicate
+// the report's contents (weights, full specs) - Mongo stays the source of truth
+// for that. This table exists so ReportComponent rows have something to join to.
+model Report {
+  id            Int               @id @default(autoincrement())
+  mongoReportId String            @unique
+  userId        String
+  createdAt     DateTime          @default(now())
+  components    ReportComponent[]
+}
+
+// The join table: one row per (report, component) pairing. This is what makes
+// the relationship many-to-many - one report can include many components, and
+// one component (e.g. "RTX 3080") can appear across many different reports.
+model ReportComponent {
+  id          Int       @id @default(autoincrement())
+  report      Report    @relation(fields: [reportId], references: [id])
+  reportId    Int
+  component   Component @relation(fields: [componentId], references: [id])
+  componentId Int
+}
