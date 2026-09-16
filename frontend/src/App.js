@@ -20,6 +20,7 @@ import BenchReportInfo from "./components/BenchReportInfo.jsx";
 import SavedReports from "./pages/SavedReports.jsx";
 import SharedReport from "./pages/SharedReport.jsx";
 import SharedReports from "./pages/SharedReports.jsx";
+import Leaderboard from "./pages/Leaderboard.jsx";
 
 // Core class
 function App() {
@@ -114,6 +115,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <SharedReports />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/leaderboard"
+              element={
+                <ProtectedRoute>
+                  <Leaderboard />
                 </ProtectedRoute>
               }
             />
