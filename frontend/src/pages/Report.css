@@ -38,15 +38,15 @@
 .report-card {
   background: var(--border);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: var(--radiusXl);
+  box-shadow: var(--shadowSm);
 }
 
 .report-cardlast {
   background: var(--border);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: var(--radiusXl);
+  box-shadow: var(--shadowSm);
   padding-bottom: 90px;
 }
 
@@ -66,7 +66,7 @@
 .report-item {
   background: var(--border);
   padding: 12px;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
@@ -96,7 +96,7 @@
 
 .compare-btn {
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   border: none;
   cursor: pointer;
   background: var(--accent, #007bff);
@@ -120,7 +120,7 @@
   padding: 10px 16px;
   background: var(--accent, #007bff);
   color: white;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   font-weight: 600;
   text-decoration: none;
   transition: 0.15s ease;

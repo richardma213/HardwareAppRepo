@@ -55,7 +55,7 @@ html, body {
   color: white;
   border: none;
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   cursor: pointer;
   margin-bottom: 10px;
 }
@@ -94,7 +94,7 @@ html, body {
   box-sizing: border-box;
   display: block;
   padding: .8rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   border: 1px solid #ccc;
   font-size: 1rem;
   
@@ -117,15 +117,41 @@ html, body {
 .cpu-card {
   background:var(--border);
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: var(--radiusLg);
+  box-shadow: var(--shadowSm);
   font-size: 1.1rem;
   font-weight: 600;
-  
+  border: 2px solid transparent;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.cpu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(63, 123, 255, 0.16);
+}
+
+.cpu-card.selected {
+  border-color: var(--accent);
+  background: rgba(63, 123, 255, 0.1);
 }
 
 .cpu-card h3 {
   margin: 0 0 .5rem 0;
+}
+
+.score-bar {
+  margin-top: 6px;
+  height: 6px;
+  border-radius: var(--radiusSm);
+  background: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: var(--radiusSm);
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  transition: width 420ms ease;
 }
 
 
@@ -135,7 +161,7 @@ html, body {
 }
 .compare-btn {
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   border: none;
   cursor: pointer;
   background: var(--accent, #007bff);
@@ -174,7 +200,7 @@ html, body {
 .weight-number {
   width: 60px;
   padding: 4px 6px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   border: 1px solid #ccc;
   background: #fff;
   color: #000;

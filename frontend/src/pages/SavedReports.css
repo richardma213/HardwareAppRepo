@@ -48,7 +48,7 @@
 .save-report-button,
 .delete-report-button {
   padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   border: none;
   cursor: pointer;
   font-weight: 600;
@@ -86,7 +86,7 @@
 .copy-link-btn {
   margin-top: 0.5rem;
   padding: 8px 14px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   border: none;
   background: var(--bg);
   color: var(--text);

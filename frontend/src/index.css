@@ -21,9 +21,3 @@ body, .dark, .light {
   color: var(--text);
 }
 
-/* Card color */
-Card {
-  background: var(--card);
-  border: 1px solid var(--border);
-}
-

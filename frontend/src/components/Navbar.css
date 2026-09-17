@@ -88,7 +88,7 @@
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   padding: 8px 14px;
   font-size: 0.95rem;
   font-weight: 500;
@@ -118,7 +118,7 @@
   flex-direction: column;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radiusLg);
   box-shadow: var(--shadow);
   padding: 6px;
   z-index: 50;
@@ -127,7 +127,7 @@
 .nav-dropdown-item {
   display: block;
   padding: 8px 10px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
@@ -139,9 +139,9 @@
 
 .nav-dropdown-item.active {
   background: rgba(63, 123, 255, 0.14);
-  color: #3f7bff;
+  color: var(--accent);
   font-weight: 700;
-  border-left: 3px solid #3f7bff;
+  border-left: 3px solid var(--accent);
   padding-left: 7px;
 }
 
@@ -160,7 +160,7 @@
   transition: transform 180ms ease, opacity 180ms ease;
 
   padding: 8px 14px;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -173,7 +173,7 @@
   background: var(--panel);
   color: var(--text);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   padding: 8px 14px;
   font-size: 0.95rem;
   font-weight: 500;

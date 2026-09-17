@@ -339,7 +339,7 @@ export default function CPU() {
                 const isSelected = cpuList.some((c) => c.id === cpu.id);
 
                 return (
-                  <div key={cpu.id} className="cpu-card">
+                  <div key={cpu.id} className={`cpu-card ${isSelected ? "selected" : ""}`}>
 
                     {/* Title row with compare button */}
                     <div className="cpu-card-header">
@@ -365,6 +365,9 @@ export default function CPU() {
                     <p>Boost: {cpu.boostClock}</p>
                     <p>TDP: {cpu.tdp}</p>
                     <p className="cpu-score">Score: {cpu.normalizedScore}%</p>
+                    <div className="score-bar">
+                      <div className="score-bar-fill" style={{ width: `${cpu.normalizedScore}%` }} />
+                    </div>
                   </div>
                 );
               })

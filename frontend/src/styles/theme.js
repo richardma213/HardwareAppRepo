@@ -7,7 +7,24 @@ export const lightTheme = {
   gpubg: "linear-gradient(130deg, rgba(63,123,255,0.2) 0%, rgba(122,67,242,0.16) 50%, rgba(248,87,166,0.15) 100%)",
   panel: "rgba(255, 255, 255, 0.78)",
   shadow: "0 10px 30px rgba(73, 55, 130, 0.12)",
-  backdropGlow: "radial-gradient(circle at 10% 8%, rgba(108,135,255,0.16), transparent 42%), radial-gradient(circle at 86% 18%, rgba(248,87,166,0.13), transparent 36%)"
+  backdropGlow: "radial-gradient(circle at 10% 8%, rgba(108,135,255,0.16), transparent 42%), radial-gradient(circle at 86% 18%, rgba(248,87,166,0.13), transparent 36%)",
+
+  // Brand accent trio - reused wherever a color needs to stay constant across
+  // light/dark (badges, active nav states) instead of each usage hardcoding
+  // its own copy of the same hex values.
+  accent: "#3f7bff",
+  accent2: "#7a43f2",
+  accent3: "#f857a6",
+
+  // De facto radius scale most components already converge on - gives new/
+  // refactored CSS a shared value to reach for instead of picking its own.
+  radiusSm: "6px",
+  radiusMd: "8px",
+  radiusLg: "10px",
+  radiusXl: "12px",
+
+  shadowSm: "0 2px 6px rgba(0,0,0,0.1)",
+  shadowPopup: "0 8px 25px rgba(0,0,0,0.25)"
 };
 
 export const darkTheme = {
@@ -19,7 +36,19 @@ export const darkTheme = {
   gpubg: "linear-gradient(130deg, rgba(71,110,255,0.26) 0%, rgba(123,85,223,0.2) 50%, rgba(189,89,160,0.18) 100%)",
   panel: "rgba(34, 37, 53, 0.72)",
   shadow: "0 16px 34px rgba(0, 0, 0, 0.36)",
-  backdropGlow: "radial-gradient(circle at 12% 8%, rgba(82,106,220,0.18), transparent 44%), radial-gradient(circle at 88% 14%, rgba(162,75,156,0.16), transparent 38%)"
+  backdropGlow: "radial-gradient(circle at 12% 8%, rgba(82,106,220,0.18), transparent 44%), radial-gradient(circle at 88% 14%, rgba(162,75,156,0.16), transparent 38%)",
+
+  accent: "#3f7bff",
+  accent2: "#7a43f2",
+  accent3: "#f857a6",
+
+  radiusSm: "6px",
+  radiusMd: "8px",
+  radiusLg: "10px",
+  radiusXl: "12px",
+
+  shadowSm: "0 2px 6px rgba(0,0,0,0.1)",
+  shadowPopup: "0 8px 25px rgba(0,0,0,0.25)"
 };
 
 export function applyTheme(theme) {

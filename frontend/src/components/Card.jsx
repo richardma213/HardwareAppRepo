@@ -1,18 +1,15 @@
-export default function Card({ children, className = "", style = {} }) {
-  const baseStyle = {
-    background: "var(--card)",
-    color: "var(--text)",
-    padding: "20px",
-    borderRadius: "12px",
-    boxShadow: "var(--shadow)",
-    marginBottom: "20px",
-    border: "1px solid var(--border)",
-    backdropFilter: "blur(6px)",
-    WebkitBackdropFilter: "blur(6px)"
-  };
+import "./Card.css";
+
+export default function Card({ children, className = "", style, interactive = false, selected = false, ...rest }) {
+  const classes = [
+    "card",
+    interactive && "card--interactive",
+    selected && "card--selected",
+    className
+  ].filter(Boolean).join(" ");
 
   return (
-    <div className={className} style={{ ...baseStyle, ...style }}>
+    <div className={classes} style={style} {...rest}>
       {children}
     </div>
   );

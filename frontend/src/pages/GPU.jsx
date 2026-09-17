@@ -304,7 +304,7 @@ export default function GPU() {
             const isSelected = gpuList.some((g) => g.id === gpu.id);
 
             return (
-              <div key={gpu.id} className="gpu-card">
+              <div key={gpu.id} className={`gpu-card ${isSelected ? "selected" : ""}`}>
 
                 {/* Title row with compare button */}
                 <div className="gpu-card-header">
@@ -324,6 +324,9 @@ export default function GPU() {
                 <p>Boost: {gpu.boostClock}</p>
                 <p>TDP: {gpu.tdp} W</p>
                 <p className="gpu-score">Score: {gpu.normalizedScore}%</p>
+                <div className="score-bar">
+                  <div className="score-bar-fill" style={{ width: `${gpu.normalizedScore}%` }} />
+                </div>
               </div>
             );
           })

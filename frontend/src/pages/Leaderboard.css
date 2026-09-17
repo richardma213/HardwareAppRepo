@@ -68,7 +68,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   background: var(--panel);
   border: 1px solid var(--border);
 }
@@ -95,17 +95,17 @@
   font-size: 0.75rem;
   font-weight: 700;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: var(--radiusSm);
 }
 
 .badge-cpu {
   background: rgba(63, 123, 255, 0.18);
-  color: #3f7bff;
+  color: var(--accent);
 }
 
 .badge-gpu {
   background: rgba(248, 87, 166, 0.18);
-  color: #f857a6;
+  color: var(--accent3);
 }
 
 .leaderboard-count {

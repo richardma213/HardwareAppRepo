@@ -17,9 +17,9 @@
   width: 500px;
   max-width: 90%;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: var(--radiusXl);
   border: 1px solid var(--border); 
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  box-shadow: var(--shadowPopup);
   position: relative;
 }
 

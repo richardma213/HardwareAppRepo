@@ -122,7 +122,7 @@
   display: block;
   margin: 0 auto;
   border: 1px solid rgba(20, 48, 68, 0.18);
-  border-radius: 12px;
+  border-radius: var(--radiusXl);
   padding: 0.78rem 0.9rem;
   outline: none;
   color: #102635;
@@ -152,13 +152,13 @@
   display: block;
   margin: 0 auto;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radiusXl);
   padding: 0.82rem 1rem;
   color: #ffffff;
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
-  background: linear-gradient(95deg, #3f7bff, #7a43f2, #f857a6);
+  background: linear-gradient(95deg, var(--auth-grad-1), var(--auth-grad-2), var(--auth-grad-3));
   background-size: 180% 180%;
   transition: transform 200ms ease, box-shadow 200ms ease, background-position 320ms ease, opacity 200ms ease;
 }
@@ -216,7 +216,7 @@
   color: #8d1c1c;
   border: 1px solid rgba(221, 68, 68, 0.25);
   padding: 0.65rem 0.8rem;
-  border-radius: 10px;
+  border-radius: var(--radiusLg);
   font-size: 0.92rem;
   text-align: center;
 }
