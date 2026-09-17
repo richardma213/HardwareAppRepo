@@ -73,7 +73,11 @@ export default function Navbar({ setShowSettings, setShowBenchReportInfo }) {
             {menuOpen && (
               <div className="nav-dropdown-menu">
                 {pageLinks.map(link => (
-                  <Link key={link.to} to={link.to} className="nav-dropdown-item">
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`nav-dropdown-item ${pathname === link.to ? "active" : ""}`}
+                  >
                     {link.label}
                   </Link>
                 ))}

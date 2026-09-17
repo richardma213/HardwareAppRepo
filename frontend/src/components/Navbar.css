@@ -137,6 +137,18 @@
   background: var(--border);
 }
 
+.nav-dropdown-item.active {
+  background: rgba(63, 123, 255, 0.14);
+  color: #3f7bff;
+  font-weight: 700;
+  border-left: 3px solid #3f7bff;
+  padding-left: 7px;
+}
+
+.nav-dropdown-item.active:hover {
+  background: rgba(63, 123, 255, 0.22);
+}
+
 .br-info-button {
   display: flex;
   align-items: center;
