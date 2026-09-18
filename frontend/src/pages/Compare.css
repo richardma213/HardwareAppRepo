@@ -1,9 +1,27 @@
 .compare-page {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
   height: calc(100dvh - 72px);
   overflow: hidden;
-  
+
+}
+
+@media (max-width: 900px) {
+  .compare-page {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .compare-sidebar {
+    overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-results {
+    overflow: visible;
+  }
 }
 
 .compare-sidebar {

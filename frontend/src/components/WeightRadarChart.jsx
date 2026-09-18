@@ -79,7 +79,7 @@ export default function WeightRadarChart({ weights }) {
 
   return (
     <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-      <div style={{ width: "500px", height: "400px" }}>
+      <div style={{ width: "100%", maxWidth: "500px", height: "400px" }}>
         <Radar data={data} options={{ ...options, maintainAspectRatio: false }} />
       </div>
     </div>

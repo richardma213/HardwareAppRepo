@@ -54,7 +54,7 @@ export default function GpuRadarChart({ weights }) {
   };
 
   return (
-    <div style={{ width: "450px", height: "400px" }}>
+    <div style={{ width: "100%", maxWidth: "450px", height: "400px" }}>
       <Radar data={data} options={options} />
     </div>
   );

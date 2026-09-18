@@ -38,7 +38,7 @@
 
 .gpu-content {
   display: grid;
-  grid-template-columns: 550px 1fr;
+  grid-template-columns: minmax(0, 550px) minmax(0, 1fr);
   gap: 20px;
   height: calc(100vh - 200px);
   overflow: hidden;
@@ -193,4 +193,28 @@ html, body {
 .jchart-overlay-card h2,
 .jchart-overlay-card h3 {
   color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .gpu-page {
+    height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+
+  .gpu-content {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+
+  .gpu-left,
+  .gpu-right {
+    overflow: visible;
+    height: auto;
+    padding-right: 0;
+  }
+
+  .gpu-weight-grid {
+    grid-template-columns: 1fr;
+  }
 }

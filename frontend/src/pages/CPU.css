@@ -64,10 +64,10 @@ html, body {
 
 .cpu-content {
   display: grid;
-  grid-template-columns: 600px 1fr; 
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
   gap: 20px;
-  height: calc(100vh - 200px); 
-  overflow: hidden; 
+  height: calc(100vh - 200px);
+  overflow: hidden;
 }
 
 .cpu-left {
@@ -230,4 +230,31 @@ html, body {
 .jchart-overlay-card h2,
 .jchart-overlay-card h3 {
   color: #ffffff;
+}
+
+/* Below tablet width the fixed-width left column no longer leaves room for
+   the part list, so stack both columns and let the whole page (hero included)
+   scroll as one region instead of two independently-clipped side panels. */
+@media (max-width: 900px) {
+  .cpu-page {
+    height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+
+  .cpu-content {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+
+  .cpu-left,
+  .cpu-right {
+    overflow: visible;
+    height: auto;
+    padding-right: 0;
+  }
+
+  .cpu-weight-grid {
+    grid-template-columns: 1fr;
+  }
 }
