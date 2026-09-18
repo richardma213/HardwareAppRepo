@@ -1,7 +1,9 @@
 .leaderboard-page {
-  min-height: 100dvh;
+  height: calc(100dvh - 72px);
+  overflow-y: auto;
   background: var(--border);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .leaderboard-hero {

@@ -3,6 +3,7 @@
   min-height: 100dvh;
   background: var(--border);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 
@@ -197,6 +198,7 @@ html, body {
 
 @media (max-width: 900px) {
   .gpu-page {
+    min-height: 0;
     height: calc(100dvh - 72px);
     overflow-y: auto;
   }

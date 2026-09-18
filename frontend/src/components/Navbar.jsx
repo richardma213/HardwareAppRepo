@@ -47,7 +47,7 @@ export default function Navbar({ setShowSettings, setShowBenchReportInfo }) {
           <button className="br-info-button"
             onClick={() => setShowBenchReportInfo(true)}>
             <strong>ℹ️ Info  </strong>
-          </button>
+          </button> 
         </div>
       </div>
 

@@ -48,6 +48,7 @@ html, body {
   min-height: 100dvh;
   background: var(--border);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .info-button {
@@ -237,6 +238,7 @@ html, body {
    scroll as one region instead of two independently-clipped side panels. */
 @media (max-width: 900px) {
   .cpu-page {
+    min-height: 0;
     height: calc(100dvh - 72px);
     overflow-y: auto;
   }

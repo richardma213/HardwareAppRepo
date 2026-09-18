@@ -56,12 +56,6 @@ body {
   font-family: inherit;
 }
 
-.title {
-  font-size: 4rem;
-  font-weight: 800;
-  margin-bottom: 30px;
-}
-
 /* React template below */
 .App-link {
   color: #61dafb;
