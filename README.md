@@ -8,7 +8,7 @@ performance comparisons. The application implements JWT secured user authenticat
 and also features for saving, sharing (via links) and loading reports.
 
 # How to run the site
-BenchReport is currently live at: https://hardware-app-repo.vercel.app   [copy and paste into browser]
+BenchReport is currently live at: https://hardware-app-repo-dev.vercel.app   [copy and paste into browser]
 
 - You will initially be directed to the login page.
 - Navigate to the signup page to create an account. (use any email and password: ie user@gmail.com)
